@@ -1,84 +1,79 @@
 "use client"
 
+// import { useEffect, useRef } from "react"
 import type React from "react"
-import { useEffect, useRef, useState } from "react"
 
 interface SmoothScrollProps {
   children: React.ReactNode
 }
 
 export default function SmoothScroll({ children }: SmoothScrollProps) {
-  const [isLenisLoaded, setIsLenisLoaded] = useState(false)
-  const lenisRef = useRef<any>(null)
+  // const lenisRef = useRef<any>(null)
+  // const animationFrameRef = useRef<number>()
 
-  useEffect(() => {
-    // Dynamically import Lenis to avoid Node.js-specific errors
-    const initLenis = async () => {
-      try {
-        const { default: Lenis } = await import("@studio-freight/lenis")
+  // useEffect(() => {
+  //   let isMounted = true
 
-        const lenis = new Lenis({
-          duration: 1.2,
-          easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-          direction: "vertical",
-          gestureDirection: "vertical",
-          smooth: true,
-          smoothTouch: false,
-          touchMultiplier: 2,
-        })
+  //   const initLenis = async () => {
+  //     try {
+  //       const { default: Lenis } = await import("@studio-freight/lenis")
+  //       if (!isMounted) return
 
-        lenisRef.current = lenis
+  //       const lenis = new Lenis()
+  //       lenisRef.current = lenis
 
-        function raf(time: number) {
-          lenis.raf(time)
-          requestAnimationFrame(raf)
-        }
+  //       const raf = (time: number) => {
+  //         lenis.raf(time)
+  //         animationFrameRef.current = requestAnimationFrame(raf)
+  //       }
 
-        requestAnimationFrame(raf)
-        setIsLenisLoaded(true)
+  //       animationFrameRef.current = requestAnimationFrame(raf)
 
-        return () => {
-          lenis.destroy()
-        }
-      } catch (error) {
-        console.error("Failed to initialize smooth scrolling:", error)
-      }
-    }
+  //       const handleHashLinkClick = (e: MouseEvent) => {
+  //         const target = e.target as HTMLElement
+  //         const anchor = target.closest("a")
+  //         if (!anchor) return
 
-    initLenis()
-  }, [])
+  //         const href = anchor.getAttribute("href")
+  //         if (!href || !href.startsWith("#")) return
 
-  useEffect(() => {
-    if (!isLenisLoaded || !lenisRef.current) return
+  //         const targetId = href.substring(1)
+  //         const targetElement = document.getElementById(targetId)
+  //         if (!targetElement) return
 
-    function handleHashLinkClick(e: MouseEvent) {
-      const target = e.target as HTMLElement
-      const anchor = target.closest("a")
+  //         e.preventDefault()
 
-      if (!anchor) return
+  //         lenis.scrollTo(targetElement, {
+  //           offset: -100,
+  //           duration: 1.5,
+  //         })
+  //       }
 
-      const href = anchor.getAttribute("href")
-      if (!href || !href.startsWith("#")) return
+  //       document.addEventListener("click", handleHashLinkClick)
 
-      e.preventDefault()
+  //       // Cleanup
+  //       return () => {
+  //         cancelAnimationFrame(animationFrameRef.current!)
+  //         document.removeEventListener("click", handleHashLinkClick)
+  //         lenis.destroy()
+  //       }
+  //     } catch (error) {
+  //       console.error("Failed to initialize Lenis:", error)
+  //     }
+  //   }
 
-      const targetId = href.substring(1)
-      const targetElement = document.getElementById(targetId)
+  //   initLenis()
 
-      if (targetElement && lenisRef.current) {
-        lenisRef.current.scrollTo(targetElement, {
-          offset: -100,
-          duration: 1.5,
-        })
-      }
-    }
-
-    document.addEventListener("click", handleHashLinkClick)
-
-    return () => {
-      document.removeEventListener("click", handleHashLinkClick)
-    }
-  }, [isLenisLoaded])
+  //   return () => {
+  //     isMounted = false
+  //     if (animationFrameRef.current) {
+  //       cancelAnimationFrame(animationFrameRef.current)
+  //     }
+  //     if (lenisRef.current) {
+  //       lenisRef.current.destroy()
+  //     }
+  //   }
+  // }, [])
 
   return <>{children}</>
 }

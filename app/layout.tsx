@@ -1,17 +1,16 @@
 import type React from "react"
 import ClientLayout from "./ClientLayout"
+import MouseTrail from "@/components/mouse-trail"
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  return <ClientLayout>{children}</ClientLayout>
+  return (
+    <ClientLayout>
+      <MouseTrail />
+      {children}
+    </ClientLayout>
+  )
 }
-
-
-import './globals.css'
-
-export const metadata = {
-      generator: 'v0.dev'
-    };

@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { ModeToggle } from "./mode-toggle"
 import { Menu, X, Code, ChevronRight, Terminal } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -16,7 +15,6 @@ const navItems = [
   { name: "Skills", path: "/#skills", command: "exec skills.js" },
   { name: "Testimonials", path: "/#testimonials", command: "view testimonials.json" },
   { name: "Book a Call", path: "/#booking", command: "npm run schedule" },
-  { name: "Contact", path: "/#contact", command: "mailto:contact" },
 ]
 
 export default function Header() {
@@ -57,6 +55,19 @@ export default function Header() {
     setMobileMenuOpen(false)
   }, [pathname])
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.classList.add("overflow-hidden")
+    } else {
+      document.body.classList.remove("overflow-hidden")
+    }
+  
+    // Cleanup on unmount (optional but good practice)
+    return () => {
+      document.body.classList.remove("overflow-hidden")
+    }
+  }, [mobileMenuOpen])
+
   return (
     <header
       className={cn(
@@ -71,7 +82,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-3">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -120,12 +131,10 @@ export default function Header() {
               </div>
             </Link>
           ))}
-          <ModeToggle />
         </nav>
 
         {/* Mobile Navigation */}
         <div className="flex items-center gap-4 md:hidden">
-          <ModeToggle />
           <Button
             variant="ghost"
             size="icon"
@@ -145,8 +154,9 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
+            data-lenis-prevent
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-0 top-16 bg-zinc-900 border-t border-zinc-800 z-40 md:hidden overflow-hidden"
+            className="fixed inset-x-0 top-16 bg-zinc-900 border-t border-zinc-800 z-40 lg:hidden overflow-hidden"
             style={{ maxHeight: "calc(100vh - 4rem)" }}
           >
             <div className="p-4 overflow-y-auto max-h-[calc(100vh-4rem)]">
