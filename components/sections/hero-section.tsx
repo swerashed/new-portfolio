@@ -55,39 +55,34 @@ export default function HeroSection({ data }: HeroSectionProps) {
       <div className="container mx-auto px-4 pt-24 pb-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
           <h1
-            className={`text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 transition-all duration-700 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 transition-all duration-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             {data.title}
           </h1>
 
           <p
-            className={`text-xl md:text-2xl font-mono text-primary mb-6 transition-all duration-700 delay-300 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-xl md:text-2xl font-mono text-primary mb-6 transition-all duration-700 delay-300 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             {typedText}
             <span className={`inline-block w-2 h-5 bg-primary ml-1 ${showCursor ? "opacity-100" : "opacity-0"}`}></span>
           </p>
 
           <p
-            className={`text-lg text-muted-foreground mb-8 max-w-2xl mx-auto transition-all duration-700 delay-500 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`text-lg text-muted-foreground mb-8 max-w-2xl mx-auto transition-all duration-700 delay-500 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             {data.description}
           </p>
 
           <div
-            className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-700 delay-700 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-700 delay-700 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
-            <Button asChild size="lg" className="group">
+            <Button asChild variant="outline" size="lg">
               <Link href="/#projects">
                 View My Work
-                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </Button>
             <Button asChild variant="outline" size="lg">
@@ -96,9 +91,8 @@ export default function HeroSection({ data }: HeroSectionProps) {
           </div>
 
           <div
-            className={`mt-16 terminal-window max-w-lg mx-auto transition-all duration-700 delay-1000 ${
-              isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-            }`}
+            className={`mt-16 terminal-window max-w-lg mx-auto transition-all duration-700 delay-1000 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+              }`}
           >
             <div className="terminal-header">
               <div className="terminal-dot bg-red-500"></div>
@@ -111,13 +105,13 @@ export default function HeroSection({ data }: HeroSectionProps) {
                 <Terminal className="h-4 w-4" />
                 <span className="text-foreground font-medium">Welcome to my portfolio</span>
               </p>
-              <p className="mt-2">
+              <p className="mt-2 text-left">
                 $ <span className="text-green-500 dark:text-green-400">exploring skills...</span>
               </p>
-              <p className="mt-1">
+              <p className="mt-1 text-left">
                 $ <span className="text-blue-500 dark:text-blue-400">loading projects...</span>
               </p>
-              <p className="mt-1">
+              <p className="mt-1 text-left">
                 $ <span className="text-purple-500 dark:text-purple-400">ready</span>
               </p>
             </div>
@@ -127,11 +121,9 @@ export default function HeroSection({ data }: HeroSectionProps) {
 
       {/* Scroll indicator */}
       <div
-        className={`absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center transition-all duration-700 delay-1200 ${
-          isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
+        className={`absolute bottom-5 left-1/2 transform -translate-x-1/2 flex flex-col items-center transition-all duration-700 delay-1200 ${isLoaded ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
       >
-        <span className="text-sm font-mono mb-2">Scroll</span>
         <div className="w-6 h-10 border-2 border-primary rounded-full flex justify-center">
           <div className="w-1 h-2 bg-primary rounded-full mt-2 animate-bounce"></div>
         </div>
