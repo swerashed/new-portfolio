@@ -6,7 +6,6 @@ import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Header from "@/components/header"
 import Footer from "@/components/footer"
-import { useState, useEffect } from "react"
 
 // Use next/font to load fonts
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" })

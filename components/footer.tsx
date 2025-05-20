@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="mb-6 md:mb-0">
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Code className="h-6 w-6 text-primary" />
-              <span className="font-mono font-bold text-lg">Dev.Portfolio</span>
+              <span className="font-mono font-bold text-lg">Rashed.Portfolio</span>
             </Link>
             <p className="text-muted-foreground max-w-xs">
               Full-stack developer specializing in creating exceptional digital experiences.

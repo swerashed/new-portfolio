@@ -67,7 +67,7 @@ export default function Header() {
       <div className="container mx-auto px-4 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
           <Code className="h-6 w-6 text-purple-500" />
-          <span className="font-mono font-bold text-lg">Dev.Portfolio</span>
+          <span className="font-mono font-bold text-lg">Rashed.Portfolio</span>
         </Link>
 
         {/* Desktop Navigation */}
