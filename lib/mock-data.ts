@@ -117,27 +117,118 @@ export const mockData = {
   ],
   skills: {
     frontend: [
-      { name: "React", icon: "react", level: 95 },
-      { name: "Next.js", icon: "next", level: 90 },
-      { name: "TypeScript", icon: "typescript", level: 85 },
-      { name: "Tailwind CSS", icon: "tailwind", level: 90 },
-      { name: "GSAP", icon: "gsap", level: 80 },
+      {
+        name: "React",
+        icon: "react",
+        experience: "1+ year",
+        usage: "Used in 12+ projects",
+        role: "Primary library for building UIs"
+      },
+      {
+        name: "Next.js",
+        icon: "next",
+        experience: "1+ year",
+        usage: "Used in full-stack projects and SSR apps",
+        role: "Framework for routing, SSR, and API routes"
+      },
+      {
+        name: "TypeScript",
+        icon: "typescript",
+        experience: "1 year",
+        usage: "Used across frontend and backend projects",
+        role: "For type safety and scalable code"
+      },
+      {
+        name: "Tailwind CSS",
+        icon: "tailwind",
+        experience: "1+ year",
+        usage: "Used in most frontend UIs",
+        role: "Utility-first CSS for fast, responsive design"
+      },
+      {
+        name: "GSAP",
+        icon: "gsap",
+        experience: "6+ months",
+        usage: "Used in animations and interactive UI components",
+        role: "Animation library for rich user experiences"
+      }
     ],
     backend: [
-      { name: "Node.js", icon: "node", level: 85 },
-      { name: "Express", icon: "express", level: 80 },
-      { name: "MongoDB", icon: "mongodb", level: 75 },
-      { name: "PostgreSQL", icon: "postgresql", level: 70 },
-      { name: "GraphQL", icon: "graphql", level: 65 },
+      {
+        name: "Node.js",
+        icon: "node",
+        experience: "1+ year",
+        usage: "Used in 10+ backend services",
+        role: "Runtime for building APIs and server logic"
+      },
+      {
+        name: "Express",
+        icon: "express",
+        experience: "1 year",
+        usage: "Used in most REST APIs",
+        role: "Minimalist backend framework"
+      },
+      {
+        name: "MongoDB",
+        icon: "mongodb",
+        experience: "1 year",
+        usage: "Used in several full-stack apps",
+        role: "NoSQL database for flexible data models"
+      },
+      {
+        name: "PostgreSQL",
+        icon: "postgresql",
+        experience: "6+ months",
+        usage: "Used in structured-data apps",
+        role: "Relational database for complex queries"
+      },
+      {
+        name: "GraphQL",
+        icon: "graphql",
+        experience: "6 months",
+        usage: "Used in APIs with flexible querying",
+        role: "Query language for efficient client-server communication"
+      }
     ],
     tools: [
-      { name: "Git", icon: "git", level: 90 },
-      { name: "Docker", icon: "docker", level: 75 },
-      { name: "AWS", icon: "aws", level: 70 },
-      { name: "Figma", icon: "figma", level: 80 },
-      { name: "Jest", icon: "jest", level: 75 },
-    ],
+      {
+        name: "Git",
+        icon: "git",
+        experience: "1+ year",
+        usage: "Used in all projects",
+        role: "Version control and collaboration"
+      },
+      {
+        name: "Docker",
+        icon: "docker",
+        experience: "6+ months",
+        usage: "Used for containerized dev environments",
+        role: "Simplifying deployment and environment setup"
+      },
+      {
+        name: "AWS",
+        icon: "aws",
+        experience: "6 months",
+        usage: "Used for deploying full-stack apps",
+        role: "Cloud hosting and storage services"
+      },
+      {
+        name: "Figma",
+        icon: "figma",
+        experience: "1 year",
+        usage: "Used for UI design and prototyping",
+        role: "Collaborative design and handoff"
+      },
+      {
+        name: "Jest",
+        icon: "jest",
+        experience: "6 months",
+        usage: "Used in unit and integration testing",
+        role: "JavaScript testing framework"
+      }
+    ]
   },
+  
   testimonials: [
     {
       id: "testimonial-1",

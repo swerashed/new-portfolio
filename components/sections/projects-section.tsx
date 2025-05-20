@@ -30,8 +30,6 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
   const [showFilters, setShowFilters] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
 
-  const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category || "Other")))]
-
   // Filter projects based on category and search query
   useEffect(() => {
     let result = projects
@@ -156,51 +154,9 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
                   )}
                 </div>
 
-                {/* Category filters - desktop */}
-                <div className="hidden md:flex flex-wrap gap-2">
-                  {categories.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => setActiveFilter(category)}
-                      className={`px-3 py-1 text-xs rounded-md transition-colors ${
-                        activeFilter === category
-                          ? "bg-purple-600 text-white"
-                          : "bg-zinc-700 text-gray-300 hover:bg-zinc-600"
-                      }`}
-                    >
-                      {category}
-                    </button>
-                  ))}
-                </div>
               </div>
 
-              {/* Category filters - mobile */}
-              <AnimatePresence>
-                {showFilters && (
-                  <motion.div
-                    initial={{ height: 0, opacity: 0 }}
-                    animate={{ height: "auto", opacity: 1 }}
-                    exit={{ height: 0, opacity: 0 }}
-                    className="md:hidden mt-4 overflow-hidden"
-                  >
-                    <div className="flex flex-wrap gap-2">
-                      {categories.map((category) => (
-                        <button
-                          key={category}
-                          onClick={() => setActiveFilter(category)}
-                          className={`px-3 py-1 text-xs rounded-md transition-colors ${
-                            activeFilter === category
-                              ? "bg-purple-600 text-white"
-                              : "bg-zinc-700 text-gray-300 hover:bg-zinc-600"
-                          }`}
-                        >
-                          {category}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+          
 
               {/* Results count */}
               <div className="mt-4 text-xs text-gray-500 font-mono">
@@ -247,19 +203,6 @@ export default function ProjectsSection({ projects }: ProjectsSectionProps) {
           )}
         </motion.div>
 
-        {/* View all projects button */}
-        <div
-          className={`mt-16 text-center transition-all duration-700 delay-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <Button asChild size="lg" variant="outline" className="group bg-zinc-800 hover:bg-zinc-700 border-zinc-700">
-            <Link href="/projects">
-              View All Projects
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
-            </Link>
-          </Button>
-        </div>
       </div>
     </section>
   )
