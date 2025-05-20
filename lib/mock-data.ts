@@ -2,11 +2,11 @@ export const mockData = {
   hero: {
     title: "Full-Stack Developer",
     subtitle: "Building modern web experiences",
-    description: "I create fast, responsive, and visually stunning web applications with cutting-edge technologies.",
+    description: "Let's build fast, beautiful web apps. In just over a year, I’ve shipped 30+ projects — either I’m efficient or just really love shipping code (probably both).",
   },
   about: {
     image: "/placeholder.svg?height=600&width=600",
-    bio: "I'm a passionate full-stack developer with over 5 years of experience building modern web applications. I specialize in React, Next.js, Node.js, and modern frontend technologies. My approach combines clean code, performance optimization, and thoughtful user experience design.",
+    bio: "I'm a passionate full-stack developer with 1+ year of hands-on experience building modern web applications. I've successfully delivered 30+ projects using technologies like React, Next.js, and Node.js. I focus on writing clean, maintainable code and crafting fast, user-friendly interfaces with a strong attention to performance and user experience.",
     values: [
       {
         title: "Clean Code",

@@ -50,7 +50,7 @@ export default function AboutSection({ data }: AboutSectionProps) {
           >
             <div className="relative rounded-lg overflow-hidden aspect-square">
               <Image
-                src="/placeholder.svg?height=600&width=600"
+                src="/portfolio.jpg"
                 alt="Developer portrait"
                 width={600}
                 height={600}
@@ -69,8 +69,8 @@ export default function AboutSection({ data }: AboutSectionProps) {
                         {"  "}passion: <span className="text-yellow-400">'building amazing web experiences'</span>,
                         <br />
                         {"  "}skills: [<span className="text-yellow-400">'frontend'</span>,{" "}
-                        <span className="text-yellow-400">'backend'</span>,{" "}
-                        <span className="text-yellow-400">'design'</span>],
+                        <span className="text-yellow-400">'backend'</span>{" "}
+                        ],
                         <br />
                         {"  "}available: <span className="text-purple-400">true</span>
                         <br />
