@@ -7,17 +7,17 @@ import MouseTrail from "@/components/mouse-trail"
 
 // ✅ Add metadata export
 export const metadata: Metadata = {
-  title: "Md Rashed | Full Stack Developer",
-  description: "Portfolio of Md Rashed, a passionate Full Stack Web Developer skilled in React, Next.js, Node.js, and modern web technologies.",
-  keywords: ["Full Stack Developer", "Md Rashed", "React", "Next.js", "Node.js", "Portfolio", "Frontend", "Backend"],
-  authors: [{ name: "Rashed", url: "https://rashed.dev" }],
-  creator: "Md Rashed",
+  title: "Rashed | Full Stack Developer",
+  description: "Portfolio of Rashed, a passionate Full Stack Web Developer skilled in React, Next.js, Node.js, and modern web technologies.",
+  keywords: ["Full Stack Developer", "Rashed", "React", "Next.js", "Node.js", "Portfolio", "Frontend", "Backend"],
+  authors: [{ name: "Rashed", url: "https://rashed-portfolio.vercel.app" }],
+  creator: "Rashed",
   themeColor: "#0f172a", // Tailwind's zinc-900
 
   openGraph: {
-    title: "Md Rashed | Full Stack Developer",
+    title: "Rashed | Full Stack Developer",
     description: "Explore the work and skills of Rashed — building performant, modern web applications.",
-    url: "https://rashed.dev",
+    url: "https://rashed-portfolio.vercel.app",
     siteName: "Rashed's Portfolio",
     images: [
       {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
 
-  metadataBase: new URL("https://rashed.dev"),
+  metadataBase: new URL("https://rashed-portfolio.vercel.app"),
 }
 
 export default function RootLayout({
