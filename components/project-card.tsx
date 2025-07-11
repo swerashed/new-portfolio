@@ -48,7 +48,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           alt={project.title}
           width={600}
           height={400}
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-fill h-full w-full transition-transform duration-500 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/90 via-zinc-900/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
           <div className="space-y-2">
@@ -85,7 +85,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
 
         <div className="flex flex-wrap gap-3">
           <Button asChild size="sm" variant="default" className="gap-1 bg-purple-600 hover:bg-purple-700">
-            <Link href={project.caseStudyUrl}>
+            <Link target="_blank" href={project.caseStudyUrl} className="text-white">
               <Github className="h-4 w-4 mr-1" />
               View Case Study
             </Link>

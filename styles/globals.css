@@ -92,3 +92,7 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.border-booker{
+  width: 100% !important;
+}

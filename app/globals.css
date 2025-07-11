@@ -222,3 +222,7 @@
 html{
   scroll-behavior: smooth;
 }
+
+.border-booker{
+  width: 100% !important;
+}

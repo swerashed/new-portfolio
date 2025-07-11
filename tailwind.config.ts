@@ -15,7 +15,8 @@ const config = {
       center: true,
       padding: "2rem",
       screens: {
-        "2xl": "1400px",
+        mlg: "1200px", // ✅ Added breakpoint at 1200px
+        "2xl": "1400px", // existing breakpoint
       },
     },
     extend: {

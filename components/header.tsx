@@ -11,10 +11,12 @@ import { motion, AnimatePresence } from "framer-motion"
 const navItems = [
   { name: "Home", path: "/", command: "cd ~" },
   { name: "About", path: "/#about", command: "cat about.md" },
+  { name: "Experience", path: "/#experience", command: "cat experience.json" },
   { name: "Projects", path: "/#projects", command: "ls projects/" },
   { name: "Skills", path: "/#skills", command: "exec skills.js" },
   { name: "Testimonials", path: "/#testimonials", command: "view testimonials.json" },
   { name: "Book a Call", path: "/#booking", command: "npm run schedule" },
+  { name: "Contact", path: "/#contact", command: "mailto:contact" },
 ]
 
 export default function Header() {
@@ -82,7 +84,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-3">
+        <nav className="hidden xl:flex items-center gap-3">
           {navItems.map((item) => (
             <Link
               key={item.name}
@@ -134,7 +136,7 @@ export default function Header() {
         </nav>
 
         {/* Mobile Navigation */}
-        <div className="flex items-center gap-4 md:hidden">
+        <div className="flex items-center gap-4 xl:hidden">
           <Button
             variant="ghost"
             size="icon"
@@ -156,7 +158,7 @@ export default function Header() {
             exit={{ opacity: 0, height: 0 }}
             data-lenis-prevent
             transition={{ duration: 0.3 }}
-            className="fixed inset-x-0 top-16 bg-zinc-900 border-t border-zinc-800 z-40 lg:hidden overflow-hidden"
+            className="fixed inset-x-0 top-16 bg-zinc-900 border-t border-zinc-800 z-40 xl:hidden overflow-hidden"
             style={{ maxHeight: "calc(100vh - 4rem)" }}
           >
             <div className="p-4 overflow-y-auto max-h-[calc(100vh-4rem)]">

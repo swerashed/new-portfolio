@@ -30,6 +30,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
   const [typedText, setTypedText] = useState<Record<string, string>>({})
   const typingIntervals = useRef<Record<string, NodeJS.Timeout>>({})
   const sectionRef = useRef<HTMLElement>(null)
+  // const allSkills = [...skills.backend, ...skills.frontend, ...skills.tools]
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -153,7 +154,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
       {/* Card content */}
       <div className="p-5">
         {/* Typing effect display */}
-        <div className="font-mono text-xs text-gray-400 mb-3 h-6 overflow-hidden">
+        <div className="font-mono text-xs text-gray-400 h-6 overflow-visible mb-5">
           {typedText[skill.name] || `// ${skill.name} details`}
           {hoveredSkill === skill.name && (
             <span className="ml-1 inline-block w-2 h-4 bg-purple-500 animate-pulse"></span>
@@ -260,7 +261,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                   </div>
                   <div className="ml-4">
                     <span className="text-green-400">name</span>:{" "}
-                    <span className="text-yellow-300">'Full Stack Developer'</span>,
+                    <span className="text-yellow-300">'Full Stack Engineer'</span>,
                   </div>
                   <div className="ml-4">
                     <span className="text-green-400">expertise</span>: <span className="text-purple-400">{"{"}</span>
@@ -292,10 +293,10 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
                     <span className="text-green-400">yearsOfExperience</span>:{" "}
                     <span className="text-orange-400">1+</span>,
                   </div>
-                  <div className="ml-4">
+                  {/* <div className="ml-4">
                     <span className="text-green-400">completedProject</span>:{" "}
                     <span className="text-orange-400">30+</span>,
-                  </div>
+                  </div> */}
                   <div className="ml-4">
                     <span className="text-green-400">availableForHire</span>:{" "}
                     <span className="text-blue-400">true</span>
@@ -309,7 +310,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
           </div>
 
           {/* Skills grid */}
-          <motion.div
+          {/* <motion.div
             className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
             variants={containerVariants}
             initial="hidden"
@@ -317,7 +318,7 @@ export default function SkillsSection({ skills }: SkillsSectionProps) {
             key={activeCategory}
           >
             {activeSkills.map((skill) => renderSkillCard(skill))}
-          </motion.div>
+          </motion.div> */}
         </div>
       </div>
     </section>

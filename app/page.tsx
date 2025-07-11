@@ -9,6 +9,7 @@ import TestimonialsSection from "@/components/sections/testimonials-section"
 import BookingSection from "@/components/sections/booking-section"
 import ContactSection from "@/components/sections/contact-section"
 import { mockData } from "@/lib/mock-data"
+import ExperienceSection from "@/components/sections/experience-section"
 
 export default function Home() {
   // Use client-side state instead of server data fetching
@@ -18,6 +19,7 @@ export default function Home() {
     <>
       <HeroSection data={data.hero} />
       <AboutSection data={data.about} />
+      <ExperienceSection experiences={data.experiences} />
       <ProjectsSection projects={data.featuredProjects} />
       <SkillsSection skills={data.skills} />
       <TestimonialsSection testimonials={data.testimonials} />

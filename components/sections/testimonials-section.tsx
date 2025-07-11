@@ -67,31 +67,46 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
   }, [])
 
   const testimonial = testimonials[activeIndex]
+  // ... inside your component
 
   // Simulate typing effect for testimonial text
-  const [displayedText, setDisplayedText] = useState("")
-  const [isTyping, setIsTyping] = useState(true)
-  const textToType = testimonial.text
-  const typingSpeed = 30 // ms per character
+  const [displayedText, setDisplayedText] = useState("");
+  const [isTyping, setIsTyping] = useState(true);
+  const typingSpeed = 30; // ms per character
 
   useEffect(() => {
-    setDisplayedText("")
-    setIsTyping(true)
-    let i = 0
+    // 1. When the effect runs (because activeIndex changed), start typing.
+    setIsTyping(true);
+    
+    // Get the full text for the current testimonial.
+    const textToType = testimonials[activeIndex].text;
 
-    const typingInterval = setInterval(() => {
-      if (i < textToType.length) {
-        setDisplayedText((prev) => prev + textToType.charAt(i))
-        i++
-      } else {
-        setIsTyping(false)
-        clearInterval(typingInterval)
-      }
-    }, typingSpeed)
+    const intervalId = setInterval(() => {
+      // 2. Use the functional update form of setState. This is key.
+      // It always gives you the very latest state.
+      setDisplayedText((currentDisplayedText) => {
+        // 3. If the displayed text is already the full length, stop.
+        if (currentDisplayedText.length === textToType.length) {
+          clearInterval(intervalId);
+          setIsTyping(false);
+          return currentDisplayedText; // Return the full text
+        }
+        
+        // 4. Otherwise, calculate the next character based on the current length.
+        return textToType.substring(0, currentDisplayedText.length + 1);
+      });
+    }, typingSpeed);
 
-    return () => clearInterval(typingInterval)
-  }, [textToType, activeIndex])
+    // 5. The cleanup function. This runs when activeIndex changes,
+    // stopping the old interval before a new one starts.
+    return () => {
+      clearInterval(intervalId);
+      // Also, immediately clear the text for a clean transition.
+      setDisplayedText(""); 
+    };
 
+  }, [activeIndex, testimonials]); // Depend only on what triggers a new testimonial
+  
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === "n") {
@@ -186,7 +201,7 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
               <div className="ml-8 pl-4 border-l border-zinc-800">
                 {/* Comment section */}
                 <div className="font-mono text-gray-500 mb-4">
-                  // Client testimonial from {testimonial.name}, {testimonial.role} at {testimonial.company}
+                  // Author testimonial from {testimonial.name}, {testimonial.role} at {testimonial.company}
                 </div>
 
                 {/* Testimonial as code */}
@@ -194,29 +209,24 @@ export default function TestimonialsSection({ testimonials }: TestimonialsSectio
                   <span className="text-purple-400">const</span> <span className="text-blue-400">testimonial</span> ={" "}
                   {"{"}
                   <div className="ml-4">
-                    <span className="text-green-400">client</span>:{" "}
+                    <span className="text-green-400">author</span>:{" "}
                     <span className="text-yellow-300">'{testimonial.name}'</span>,
                   </div>
                   <div className="ml-4">
-                    <span className="text-green-400">feedback</span>: <span className="text-yellow-300">`</span>
+                    <span className="text-green-400">comment</span>: <span className="text-yellow-300">`</span>
                     <div className="ml-4 text-gray-300 relative">
                       {displayedText}
                       {isTyping && <span className="inline-block w-2 h-4 bg-purple-500 ml-1 animate-blink"></span>}
                     </div>
                     <span className="text-yellow-300">`</span>,
                   </div>
-                  <div className="ml-4">
-                    <span className="text-green-400">rating</span>: <span className="text-orange-400">5</span>,
-                  </div>
-                  <div className="ml-4">
-                    <span className="text-green-400">date</span>: <span className="text-yellow-300">'2025-05-19'</span>
-                  </div>
+
                   {"}"};
                 </div>
 
                 {/* Client info as code */}
                 <div className="font-mono mt-8">
-                  <span className="text-purple-400">const</span> <span className="text-blue-400">client</span> = {"{"}
+                  <span className="text-purple-400">const</span> <span className="text-blue-400">author</span> = {"{"}
                   <div className="ml-4 flex items-center gap-4 my-4">
                     <div className="relative w-12 h-12 rounded-full overflow-hidden border-2 border-purple-500">
                       <Image

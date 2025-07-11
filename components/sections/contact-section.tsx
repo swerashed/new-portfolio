@@ -4,7 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Mail, MessageSquare, Calendar, Clock, Video, MapPin, ChevronLeft, ChevronRight } from "lucide-react"
 import Link from "next/link"
-
+import Cal, { getCalApi } from "@calcom/embed-react";
 interface ContactSectionProps {
   contact: {
     email: string
@@ -82,6 +82,13 @@ export default function ContactSection({ contact }: ContactSectionProps) {
     console.log("Next month")
   }
 
+    useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({"namespace":"30min"});
+      cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+    })();
+  }, [])
+
   return (
     <section id="contact" ref={sectionRef} className="py-24 bg-black text-white">
       <div className="container mx-auto px-4">
@@ -123,7 +130,7 @@ export default function ContactSection({ contact }: ContactSectionProps) {
             </div>
           </div>
 
-          <div className="bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
+          <div className="hidden bg-zinc-900 border border-zinc-800 rounded-xl overflow-hidden shadow-2xl">
             <div className="grid grid-cols-1 md:grid-cols-3">
               {/* Meeting info panel */}
               <div className="bg-zinc-800 p-6 border-r border-zinc-700">
@@ -268,8 +275,44 @@ export default function ContactSection({ contact }: ContactSectionProps) {
               </Button>
             </div>
           </div>
+
+          <div className="w-full">
+            <Cal namespace="30min"
+              calLink="swerashed/30min"
+              style={{width:"100% !important",height:"100%",overflow:"scroll"}}
+              config={{"layout":"month_view"}}
+            />
+          </div>
         </div>
       </div>
     </section>
   )
 }
+
+
+/* First make sure that you have installed the package */
+
+/* If you are using yarn */
+// yarn add @calcom/embed-react
+
+/* If you are using npm */
+// npm install @calcom/embed-react
+  
+// import Cal, { getCalApi } from "@calcom/embed-react";
+// import { useEffect } from "react";
+// export default function MyApp() {
+//   useEffect(() => {
+//     (async function () {
+//       const cal = await getCalApi({"namespace":"30min"});
+//       cal("ui", {"hideEventTypeDetails":false,"layout":"month_view"});
+//     })();
+//   }, [])
+//   return <Cal namespace="30min"
+//     calLink="swerashed/30min"
+//     style={{width:"100%",height:"100%",overflow:"scroll"}}
+//     config={{"layout":"month_view"}}
+    
+    
+//   />;
+// };
+  
